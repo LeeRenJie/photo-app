@@ -132,7 +132,4 @@ Rails.application.configure do
     :domain => 'gmail.com',
     :enable_starttls_auto => true
   }
-
-  #optional:
-  ActionMailer::Base.default_content_type = "text/html"
 end

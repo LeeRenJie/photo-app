@@ -117,14 +117,22 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.delivery_method = :smtp   host = "photo-app-rj.herokuapp.com"
-  config.action_mailer.default_url_options = { host: host, protocol: 'https' }   ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.gmail.com',
-    :port => '587',
-    :authentication => :plain,
-    :user_name => ENV['GMAIL_USERNAME'],
-    :password => ENV['GMAIL_PASSWORD'],
+  config.action_mailer.delivery_method = :smtp
+  #URL of app in production
+  host = 'photo-app-rj.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => "587",
+    :user_name            => ENV['GMAIL_USERNAME'],
+    :password             => ENV['GMAIL_PASSWORD'],
+    :authentication       => "plain",
     :domain => 'gmail.com',
     :enable_starttls_auto => true
   }
+
+  #optional:
+  ActionMailer::Base.default_content_type = "text/html"
 end

@@ -119,7 +119,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   #URL of app in production
   host = 'photo-app-rj.herokuapp.com'
-  config.action_mailer.default_url_options = { host: photo-app-rj.herokuapp.com/, protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'photo-app-rj.herokuapp.com', protocol: 'https' }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
